@@ -1,14 +1,16 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors'); // <--- importar
+const cors = require('cors');
 
 const app = express();
 
-
 app.use(cors({
-    origin: '*'
+  origin: ['http://localhost:5501', 'http://127.0.0.1:5501'],
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
 }));
 
+// Importar rutas
 const getTablas = require('./routes/get/obtenerTablas');
 app.use(getTablas);
 
