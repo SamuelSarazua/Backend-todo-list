@@ -6,9 +6,10 @@ const app = express();
 
 app.use(cors({
   origin: [
+    '*', 
     'http://localhost:5501', 
     'http://127.0.0.1:5501',
-    'https://backend-todo-list-34qm.onrender.com/',
+    'https://samuelsarazua.github.io/Todo-list./',
     'https://samuelsarazua.github.io/Todo-list./pages/dashboard.html'
   ],
   methods: 'GET,POST,PUT,DELETE',
