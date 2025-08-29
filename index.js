@@ -5,17 +5,23 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-  origin: [
-    '*', 
-    'http://localhost:5501', 
-    'http://127.0.0.1:5501',
-    'https://samuelsarazua.github.io/Todo-list./',
-    'https://todo-list-seven-dun.vercel.app/pages/dashboard.html',
-    'https://samuelsarazua.github.io/Todo-list./pages/dashboard.html'
-  ],
-  methods: 'GET,POST,PUT,DELETE',
-  credentials: true
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5501',
+      'http://127.0.0.1:5501',
+      'https://samuelsarazua.github.io',
+      'https://todo-list-seven-dun.vercel.app'
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
+
 
 // Importar rutas
 const getTablas = require('./routes/get/obtenerTablas');
