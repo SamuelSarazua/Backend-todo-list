@@ -10,6 +10,7 @@ app.use(cors({
     'http://localhost:5501', 
     'http://127.0.0.1:5501',
     'https://samuelsarazua.github.io/Todo-list./',
+    'https://todo-list-seven-dun.vercel.app/pages/dashboard.html',
     'https://samuelsarazua.github.io/Todo-list./pages/dashboard.html'
   ],
   methods: 'GET,POST,PUT,DELETE',
